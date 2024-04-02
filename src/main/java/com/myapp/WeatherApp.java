@@ -34,7 +34,7 @@ public class WeatherApp extends Application {
     }
 
     private void updateWeatherInfo(String city, TextArea weatherInfoArea){
-        String apikey = "2cd652eb743648b49e4140126242603";
+        String apikey = "your_API";
         String urlString = String.format("http://api.weatherapi.com/v1/current.json?key=%s&q=%s&aqi=no", apikey,city);
 
         String json = WeatherApiRequest.getWeatherData(urlString);
