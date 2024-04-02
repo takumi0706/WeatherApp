@@ -34,7 +34,7 @@ public class WeatherApp extends Application {
     }
 
     private void updateWeatherInfo(String city, TextArea weatherInfoArea){
-        String apikey = "your_API";
+        String apikey = System.getenv("API_KEY");
         String urlString = String.format("http://api.weatherapi.com/v1/current.json?key=%s&q=%s&aqi=no", apikey,city);
 
         String json = WeatherApiRequest.getWeatherData(urlString);
@@ -45,7 +45,6 @@ public class WeatherApp extends Application {
             String info = String.format("場所：%s, %s\n温度：%s ℃\n天気：%s\n風速：%s kph",response.location.name,response.location.country,response.current.temp_c, response.current.condition.text, response.current.wind_kph);
             weatherInfoArea.setText(info);
         }catch (Exception e){
-            e.printStackTrace();
             weatherInfoArea.setText("天気情報を取得できませんでした。");
         }
     }

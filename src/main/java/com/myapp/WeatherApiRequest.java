@@ -24,7 +24,6 @@ public class WeatherApiRequest {
             in.close();
 
         }catch (Exception e){
-            e.printStackTrace();
         }
         return response.toString();
     }
